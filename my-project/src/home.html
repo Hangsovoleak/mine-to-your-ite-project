@@ -1,0 +1,755 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MineToYours</title>
+    <link rel="stylesheet" href="../dist/output.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <script>
+        function toggleMode() {
+          document.body.classList.toggle("light");
+          const themeIcon = document.getElementById("themeIcon");
+          if (document.body.classList.contains("light")) {
+            themeIcon.src = "../assets/moon.svg"; // show moon icon for light mode
+          } else {
+            themeIcon.src = "../assets/sun.svg";  // show sun icon for dark mode
+          }
+        }
+        </script>
+        <style>
+            /* Navbar default (dark mode) */
+            /* Dark mode (default) */
+            .nav-glass {
+            background: rgba(0, 21, 31, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            }
+
+            .nav-menu {
+            background: #002538;
+            border: 1px solid #032c40;
+            }
+
+            .nav-menu a {
+            color: white;
+            }
+
+            .nav-menu a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            }
+
+            .nav-action {
+            background: #002538;
+            border: 1px solid #032c40;
+            color: white;
+            }
+
+            /* Light mode overrides — navbar only */
+            body.light .nav-glass {
+            background: rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(15, 23, 42, 0.2);
+            }
+
+            body.light .nav-menu {
+            background: #c0f2f8;
+            border: 1px solid #a0e0ea;
+            }
+
+            body.light .nav-menu a {
+            color: #056f7f;
+            }
+
+            body.light .nav-menu a:hover {
+            background: rgba(126, 223, 219, 0.5);
+            }
+
+            body.light .nav-action {
+            background: #c0f2f8;
+            border: 1px solid #a0e0ea;
+            color: #056f7f;
+            }
+        </style>
+  </head>
+
+  <body 
+    class="min-h-screen bg-gradient-to-br from-[#00171f] via-[#00202b] to-[#003b46]"
+  >
+    <!-- nav bar -->
+    <nav class="fixed top-3 left-3 right-3 sm:top-6 sm:left-8 sm:right-8 z-50">
+        <div class="nav-glass bg-white/15 rounded-3xl shadow-md px-3 sm:px-4 py-3">
+            <div class="max-w-screen-2xl mx-auto flex items-center justify-between">
+    
+                <!-- LEFT: Logo -->
+                <a href="#" class="w-12 h-12 rounded-full bg-teal-600 flex items-center justify-center shrink-0">
+                  <img src="../assets/MINE.png" class="w-10 h-10 rounded-full"/>
+                </a>
+              
+                <!-- CENTER: Desktop menu only -->
+                <div class="hidden md:flex flex-1 justify-center">
+                  <div class="bg-[#002538] rounded-xl px-4 py-2 flex items-center gap-3 border-2 border-[#032c40] nav-menu">
+                    <a href="#" class="flex items-center gap-2 px-4 py-2 text-sm text-white font-semibold rounded-xl hover:bg-white/20 transition">
+                        <img src="../assets/house.svg" alt="Home" class="w-6 h-6" /> Home
+                    </a>
+                    <a href="./product.page.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white font-semibold rounded-xl hover:bg-white/20 transition">
+                        <img src="../assets/archive.svg" alt="Products" class="w-6 h-6" /> Product
+                    </a>
+                    <a href="./contact.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white font-semibold rounded-xl hover:bg-white/20 transition">
+                        <img src="../assets/inbox.svg" alt="Contact" class="w-6 h-6" /> Contact
+                    </a>
+                    <a href="./about.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white font-semibold rounded-xl hover:bg-white/20 transition">
+                        <img src="../assets/book-user.svg" alt="About" class="w-6 h-6" /> About
+                    </a>
+                  </div>
+                </div>
+              
+                <!-- RIGHT: Actions -->
+                <div class="flex items-center gap-2">
+              
+                  <a href="#" class="w-10 h-10 rounded-full bg-[#002538] flex items-center justify-center nav-action">
+                    <img src="../assets/languages.svg" class="w-5 h-5"/>
+                  </a>
+              
+                  <a href="../src/login.html" class="w-10 h-10 rounded-full bg-[#002538] flex items-center justify-center nav-action">
+                    <img src="../assets/user-plus (2).svg" class="w-5 h-5"/>
+                  </a>
+              
+                  <button onclick="toggleMode()" class="w-10 h-10 rounded-full bg-[#002538] flex items-center justify-center nav-action">
+                    <img id="themeIcon" src="../assets/sun.svg" class="w-5 h-5"/>
+                  </button>
+              
+                  <!-- Mobile menu button -->
+                  <button
+                    type="button"
+                    class="md:hidden w-10 h-10 flex items-center justify-center"
+                    data-hs-collapse="#mobile-menu"
+                    >
+                   <img src="../assets/menu (1).svg" class="w-6 h-6"/>
+                   </button>
+              
+                </div>
+              </div>
+              <div
+                id="mobile-menu"
+                class="hs-collapse hidden md:hidden mt-2 mx-3 sm:mx-8 rounded-xl p-2 flex-col gap-2 nav-menu">
+                <a href="./home.html" class="block px-4 py-2 text-white rounded-lg hover:bg-white/20">Home</a>
+                <a href="./product.page.html" class="block px-4 py-2 text-white rounded-lg hover:bg-white/20">Product</a>
+                <a href="./contact.html" class="block px-4 py-2 text-white rounded-lg hover:bg-white/20">Contact</a>
+                <a href="./about.html" class="block px-4 py-2 text-white rounded-lg hover:bg-white/20">About</a>
+              </div>
+        </div>
+    </nav>
+
+    <!-- hero section -->
+    <section
+      class="relative min-h-screen flex items-center justify-center mt-10"
+    >
+      <!-- Overlay -->
+      <div class="absolute inset-0 bg-[#00171f]/80"></div>
+      <!-- <div
+        class="absolute inset-0 bg-gradient-to-b from-[#00171f]/60 to-[#00171f]/90"
+      ></div> -->
+
+      <!-- Content -->
+      <div
+        class="relative z-10 text-center px-6 max-w-2xl mx-auto flex flex-col items-center gap-6"
+      >
+        <h1
+          class="text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight"
+        >
+          "Your stuff finds its
+          <span
+            class="text-transparent bg-clip-text bg-gradient-to-r from-teal-300 to-cyan-400"
+          >
+            next home."</span
+          >
+        </h1>
+
+        <p class="text-white/60 text-base sm:text-lg leading-relaxed">
+          Buy, sell, and trade pre-loved items with people in your community.
+          Nothing good should go to waste — give it a second life on
+          <span class="text-teal-300 font-bold">MineToYours</span>.
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-3 pt-2">
+          <a
+            href="#"
+            class="flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-[#00171f] bg-gradient-to-r from-teal-300 to-cyan-400 hover:opacity-90 transition"
+          >
+            Start Selling
+            <i class="fa-solid fa-right-long pt-1"></i>
+          </a>
+          <a
+            href="#"
+            class="flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold text-white border border-white/20 bg-white/5 hover:bg-white/10 transition"
+          >
+            Browse Products
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- SEARCH BAR -->
+    <div class="relative z-20 -mt-20 mx-6 lg:mx-auto lg:max-w-3xl">
+      <div
+        class="bg-white rounded-2xl shadow-xl px-4 py-4 flex flex-col sm:flex-row items-center gap-3 w-full"
+      >
+        <div class="flex-1 flex items-center gap-3 w-full">
+          <i class="fa-solid fa-magnifying-glass text-gray-500"></i>
+          <input
+            type="text"
+            placeholder="Search for items e.g. shoes, camera..."
+            class="flex-1 text-sm text-gray-700 outline-none placeholder-gray-400"
+          />
+        </div>
+        <div class="w-px h-8 bg-gray-200 hidden sm:block"></div>
+        <div class="flex items-center gap-3 w-full sm:w-auto">
+          <i class="fa-solid fa-bars text-gray-400"></i>
+          <select
+            class="text-sm text-gray-500 outline-none bg-transparent rounded-2xl"
+          >
+            <option>All Categories</option>
+            <option>Clothes</option>
+            <option>Electronics</option>
+            <option>Furniture</option>
+            <option>Books</option>
+            <option>Shoes</option>
+            <option>Free items</option>
+          </select>
+        </div>
+        <button
+          class="w-full sm:w-auto px-6 py-2.5 bg-[#002538] text-white text-sm font-semibold rounded-xl hover:bg-[#002538]/80 transition shrink-0"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+
+    <!-- main -->
+    <main>
+      <section class="py-10 px-6 fade-in" id="categories">
+        <div class="max-w-screen-xl mx-auto">
+          <div class="text-center mb-14 fade-in text-xl text-white/50">
+            <div class="section-pill mb-7 mt-5">
+              <i class="fa-solid fa-th-large text-xl text-white/50"></i> Browse
+              by Category
+            </div>
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">
+              Find What You <span class="grad-text">Need</span>
+            </h2>
+            <p
+              class="mt-4 text-white/50 text-sm max-w-md mx-auto leading-relaxed"
+            >
+              From electronics to furniture — everything pre-loved is here,
+              waiting for a new owner.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+            <!-- Electronics -->
+            <a
+              href="#"
+              class="cat-card rounded-2xl p-5 flex flex-col items-center gap-3 cursor-pointer fade-in"
+              style="transition-delay: 0.05s"
+            >
+              <div
+                class="w-12 h-12 rounded-xl bg-cyan-400/10 flex items-center justify-center"
+              >
+                <i class="fa-solid fa-laptop text-cyan-400 text-xl"></i>
+              </div>
+              <span class="text-white text-sm font-semibold">Electronics</span>
+              <span class="text-white/35 text-xs">43 items</span>
+            </a>
+
+            <!-- Clothes -->
+            <a
+              href="#"
+              class="cat-card rounded-2xl p-5 flex flex-col items-center gap-3 cursor-pointer fade-in"
+              style="transition-delay: 0.1s"
+            >
+              <div
+                class="w-12 h-12 rounded-xl bg-teal-400/10 flex items-center justify-center"
+              >
+                <i class="fa-solid fa-shirt text-teal-400 text-xl"></i>
+              </div>
+              <span class="text-white text-sm font-semibold">Clothes</span>
+              <span class="text-white/35 text-xs">128 items</span>
+            </a>
+
+            <!-- Shoes -->
+            <a
+              href="#"
+              class="cat-card rounded-2xl p-5 flex flex-col items-center gap-3 cursor-pointer fade-in"
+              style="transition-delay: 0.15s"
+            >
+              <div
+                class="w-12 h-12 rounded-xl bg-sky-400/10 flex items-center justify-center"
+              >
+                <i class="fa-solid fa-shoe-prints text-sky-400 text-xl"></i>
+              </div>
+              <span class="text-white text-sm font-semibold">Shoes</span>
+              <span class="text-white/35 text-xs">57 items</span>
+            </a>
+
+            <!-- Furniture -->
+            <a
+              href="#"
+              class="cat-card rounded-2xl p-5 flex flex-col items-center gap-3 cursor-pointer fade-in"
+              style="transition-delay: 0.2s"
+            >
+              <div
+                class="w-12 h-12 rounded-xl bg-emerald-400/10 flex items-center justify-center"
+              >
+                <i class="fa-solid fa-couch text-emerald-400 text-xl"></i>
+              </div>
+              <span class="text-white text-sm font-semibold">Furniture</span>
+              <span class="text-white/35 text-xs">29 items</span>
+            </a>
+
+            <!-- Books -->
+            <a
+              href="#"
+              class="cat-card rounded-2xl p-5 flex flex-col items-center gap-3 cursor-pointer fade-in"
+              style="transition-delay: 0.25s"
+            >
+              <div
+                class="w-12 h-12 rounded-xl bg-indigo-400/10 flex items-center justify-center"
+              >
+                <i class="fa-solid fa-book text-indigo-400 text-xl"></i>
+              </div>
+              <span class="text-white text-sm font-semibold">Books</span>
+              <span class="text-white/35 text-xs">84 items</span>
+            </a>
+
+            <!-- Free -->
+            <a
+              href="#"
+              class="cat-card rounded-2xl p-5 flex flex-col items-center gap-3 cursor-pointer fade-in"
+              style="transition-delay: 0.3s"
+            >
+              <div
+                class="w-12 h-12 rounded-xl bg-yellow-400/10 flex items-center justify-center"
+              >
+                <i class="fa-solid fa-gift text-yellow-400 text-xl"></i>
+              </div>
+              <span class="text-white text-sm font-semibold">Free Items</span>
+              <span class="text-white/35 text-xs">22 items</span>
+            </a>
+          </div>
+
+          <!-- View All -->
+          <div class="text-center mt-10 fade-in">
+            <a
+              href="#"
+              class="inline-flex items-center gap-2 text-teal-400 text-sm font-semibold border border-teal-400/30 px-6 py-3 rounded-xl hover:bg-teal-400/10 transition"
+            >
+              View All Categories <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="max-w-screen-xl mx-auto px-6 lg:px-10 pb-24">
+        <div class="text-center mb-12">
+          <p
+            class="text-teal-500 text-xl font-semibold tracking-widest uppercase mb-2 my-10"
+          >
+            Today Products
+          </p>
+          <h2 class="text-3xl lg:text-4xl font-bold text-white mt-5">
+            What's Available Now?
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Card 1 -->
+          <div
+            class="bg-[#002538]/80 rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition group"
+          >
+            <div class="relative overflow-hidden">
+              <img
+                src="./src/imgs/sneaker.webp"
+                alt="Sneakers"
+                class="w-full h-65 object-cover group-hover:scale-105 transition duration-500"
+              />
+              <span
+                class="absolute top-3 left-3 bg-gradient-to-r from-teal-300 to-cyan-400 text-black text-xs font-semibold px-3 py-1 rounded-full"
+                >Shoes</span
+              >
+            </div>
+            <div class="p-5">
+              <h3 class="text-white font-bold text-lg mb-1">
+                Vintage Sneakers
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                Lightly worn, great condition. Size 42. Perfect for streetwear
+                lovers.
+              </p>
+              <div class="flex items-center justify-between mb-4">
+                <div>
+                  <span class="text-teal-500 font-bold text-xl">$30</span>
+                  <span class="text-gray-300 text-sm line-through ml-2"
+                    >$120</span
+                  >
+                </div>
+                <div class="flex items-center gap-1 text-yellow-400 text-sm">
+                  ★★★★★ <span class="text-gray-400 ml-1">4.9</span>
+                </div>
+              </div>
+              <a
+                href="#"
+                class="block w-full text-center py-2.5 bg-[#033752] text-white text-sm font-semibold rounded-xl hover:bg-[#002538]/80 transition"
+              >
+                View Item
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="bg-[#002538]/80 rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition group"
+          >
+            <div class="relative overflow-hidden">
+              <img
+                src="./src/imgs/digital camera.jpg"
+                alt="Camera"
+                class="w-full h-65 object-cover group-hover:scale-105 transition duration-500"
+              />
+              <span
+                class="absolute top-3 left-3 bg-gradient-to-r from-teal-300 to-cyan-400 text-black text-xs font-semibold px-3 py-1 rounded-full"
+                >Electronics</span
+              >
+              <span
+                class="absolute top-3 right-3 bg-white text-[#002538] text-xs font-semibold px-3 py-1 rounded-full shadow"
+                >Trade OK</span
+              >
+            </div>
+            <div class="p-5">
+              <h3 class="text-white font-bold text-lg mb-1">Film Camera</h3>
+              <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                Fully tested and working. Great for photography enthusiasts and
+                collectors.
+              </p>
+              <div class="flex items-center justify-between mb-4">
+                <div>
+                  <span class="text-teal-500 font-bold text-xl">$45</span>
+                  <span class="text-gray-300 text-sm line-through ml-2"
+                    >$250</span
+                  >
+                </div>
+                <div class="flex items-center gap-1 text-yellow-400 text-sm">
+                  ★★★★☆ <span class="text-gray-400 ml-1">4.6</span>
+                </div>
+              </div>
+              <a
+                href="#"
+                class="block w-full text-center py-2.5 bg-[#033752] text-white text-sm font-semibold rounded-xl hover:bg-[#002538]/80 transition"
+              >
+                View Item
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div
+            class="bg-[#002538]/80 rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition group"
+          >
+            <div class="relative overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&auto=format&fit=crop&q=80"
+                alt="Headphones"
+                class="w-full h-65 object-cover group-hover:scale-105 transition duration-500"
+              />
+              <span
+                class="absolute top-3 left-3 bg-gradient-to-r from-teal-300 to-cyan-400 text-black text-xs font-semibold px-3 py-1 rounded-full"
+                >Electronics</span
+              >
+            </div>
+            <div class="p-5">
+              <h3 class="text-white font-bold text-lg mb-1">
+                Premium Headphones
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                Barely used, original box included. Crystal clear sound quality.
+              </p>
+              <div class="flex items-center justify-between mb-4">
+                <div>
+                  <span class="text-teal-500 font-bold text-xl">$20</span>
+                  <span class="text-gray-300 text-sm line-through ml-2"
+                    >$50</span
+                  >
+                </div>
+                <div class="flex items-center gap-1 text-yellow-400 text-sm">
+                  ★★★★☆ <span class="text-gray-400 ml-1">4.2</span>
+                </div>
+              </div>
+              <a
+                href="#"
+                class="block w-full text-center py-2.5 bg-[#033752] text-white text-sm font-semibold rounded-xl hover:bg-[#002538]/80 transition"
+              >
+                View Item
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div
+            class="bg-[#002538]/80 rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition group"
+          >
+            <div class="relative overflow-hidden">
+              <img
+                src="./src/imgs/headphone.jpg"
+                alt="headphone"
+                class="w-full h-65 object-cover group-hover:scale-105 transition duration-500"
+              />
+              <span
+                class="absolute top-3 left-3 bg-gradient-to-r from-teal-300 to-cyan-400 text-black text-xs font-semibold px-3 py-1 rounded-full"
+                >Electronics</span
+              >
+            </div>
+            <div class="p-5">
+              <h3 class="text-white font-bold text-lg mb-1">
+                Marshall headphone
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                Gently used headphones in good condition. Clear sound quality,
+                comfortable to wear, and fully working with no issues. Minor
+                signs of use but well maintained.
+              </p>
+              <div class="flex items-center justify-between mb-4">
+                <div>
+                  <span class="text-teal-500 font-bold text-xl">$15</span>
+                  <span class="text-gray-300 text-sm line-through ml-2"
+                    >$120</span
+                  >
+                </div>
+                <div class="flex items-center gap-1 text-yellow-400 text-sm">
+                  ★★★★★ <span class="text-gray-400 ml-1">4.9</span>
+                </div>
+              </div>
+              <a
+                href="#"
+                class="block w-full text-center py-2.5 bg-[#033752] text-white text-sm font-semibold rounded-xl hover:bg-[#002538]/80 transition"
+              >
+                View Item
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div
+            class="bg-[#002538]/80 rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition group"
+          >
+            <div class="relative overflow-hidden">
+              <img
+                src="./src/imgs/sofa.jpg"
+                alt="Sofa"
+                class="w-full h-65 object-cover group-hover:scale-105 transition duration-500"
+              />
+              <span
+                class="absolute top-3 left-3 bg-gradient-to-r from-teal-300 to-cyan-400 text-black text-xs font-semibold px-3 py-1 rounded-full"
+                >Forniture</span
+              >
+            </div>
+            <div class="p-5">
+              <h3 class="text-white font-bold text-lg mb-1">Sofa</h3>
+              <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                Second-hand sofa in good condition. Clean, comfortable, and
+                sturdy with no major damage. Perfect for living room use, only
+                lightly used.
+              </p>
+              <div class="flex items-center justify-between mb-4">
+                <div>
+                  <span class="text-teal-500 font-bold text-xl">free</span>
+                  <span class="text-gray-300 text-sm line-through ml-2"
+                    >$75</span
+                  >
+                </div>
+                <div class="flex items-center gap-1 text-yellow-400 text-sm">
+                  ★★★★★ <span class="text-gray-400 ml-1">4.9</span>
+                </div>
+              </div>
+              <a
+                href="#"
+                class="block w-full text-center py-2.5 bg-[#033752] text-white text-sm font-semibold rounded-xl hover:bg-[#002538]/80 transition"
+              >
+                View Item
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="px-6 fade-in" id="faq">
+        <div class="max-w-screen-md mx-auto">
+          <div class="text-center mb-12">
+            <div class="font-medium text-xl text-white/50 mb-4">FAQ</div>
+            <h2 class="text-3xl sm:text-4xl font-bold text-white">
+              Frequently Asked <span class="grad-text">Questions</span>
+            </h2>
+          </div>
+
+          <div class="space-y-4">
+            <details class="bg-[#1e2e3e]/70 p-5 rounded-xl cursor-pointer">
+              <summary class="text-white font-semibold">
+                Is it really free?
+              </summary>
+              <p class="text-white/60 text-sm mt-2">
+                Yes, posting and browsing items is completely free. No hidden
+                fees.
+              </p>
+            </details>
+
+            <details class="bg-[#1e2e3e]/70 p-5 rounded-xl">
+              <summary class="text-white font-semibold">
+                How do I contact a seller?
+              </summary>
+              <p class="text-white/60 text-sm mt-2">
+                You can message them directly through the platform chat system
+                or contact them via their social accounts.
+              </p>
+            </details>
+
+            <details class="bg-[#1e2e3e]/70 p-5 rounded-xl">
+              <summary class="text-white font-semibold">Is it safe?</summary>
+              <p class="text-white/60 text-sm mt-2">
+                We recommend meeting in public places and checking user profiles
+                before transactions.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="px-6 fade-in">
+        <div class="max-w-screen-md mx-auto text-center">
+          <div class="section-pill mb-4 mt-10 text-white/50 text-xl">
+            Stay Updated
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-bold text-white mb-4">
+            Get Updates & <span class="grad-text">Deals</span>
+          </h2>
+          <p class="text-white/60 text-sm mb-6">
+            Be the first to know when new items are posted near you.
+          </p>
+
+          <div class="flex flex-col sm:flex-row gap-3">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              class="flex-1 bg-white/5 border border-white/10 px-4 py-3 rounded-xl text-white text-sm outline-none"
+            />
+
+            <button
+              class="bg-gradient-to-r from-teal-400 to-cyan-400 text-[#00171f] font-bold px-6 py-3 rounded-xl text-sm cursor-pointer"
+            >
+              Subscribe
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- footer -->
+    <footer class="mt-20 px-6 sm:px-10 py-10 bg-[#002538] text-gray-300">
+      <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+        <!-- Brand -->
+        <div>
+          <h2 class="text-5xl font-bold text-[#00c2b3] mb-3">Mine To Yours</h2>
+          <p class="text-sm leading-6">
+            A platform to share and donate items easily. Give what you don’t
+            need, help someone who does.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-lg font-semibold mb-3">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a href="./home.html" class="hover:text-[#00c2b3]">Home</a></li>
+            <li>
+              <a href="./product.page.html" class="hover:text-[#00c2b3]"
+                >Product</a
+              >
+            </li>
+            <li><a href="./contact.html" class="hover:text-[#00c2b3]">Contact</a></li>
+            <li>
+              <a href="./about.html" class="hover:text-[#00c2b3]">About</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Sponsor -->
+        <div>
+          <h3 class="text-lg font-semibold mb-3">Sponsor</h3>
+          <div class="flex gap-4 items-center">
+            <a href="https://www.rupp.edu.kh/">
+              <img
+                src="../assets/ruppLogo.svg"
+                class="w-12 h-12 rounded-full"
+                alt="RUPP Logo"
+              />
+            </a>
+            <a href="https://www.fe.rupp.edu.kh/program/7">
+              <img
+                src="../assets/ITELogo.svg"
+                class="w-12 h-12 rounded-full"
+                alt="ITE Logo"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom -->
+      <div
+        class="mt-10 border-t border-gray-600 pt-4 text-center text-sm text-gray-400"
+      >
+        © Mine To Yours - ITE M2
+      </div>
+
+      <!-- Light mode protection -->
+      <style>
+        body.light footer {
+          background-color: #002538 !important;
+          color: #d1d5db !important;
+        }
+
+        body.light footer a:hover {
+          color: #00c2b3;
+        }
+      </style>
+    </footer>
+
+    <script>
+      const slider = document.getElementById("nav-slider");
+      const links = document.querySelectorAll(".nav-link");
+
+      function moveSlider(link) {
+        const container = slider.parentElement;
+        const containerRect = container.getBoundingClientRect();
+        const linkRect = link.getBoundingClientRect();
+
+        slider.style.left = linkRect.left - containerRect.left + "px";
+        slider.style.width = linkRect.width + "px";
+        slider.style.opacity = "1";
+      }
+
+      function hideSlider() {
+        slider.style.opacity = "0";
+      }
+      links.forEach((link) => {
+        link.addEventListener("mouseenter", () => moveSlider(link));
+      });
+
+      slider.parentElement.addEventListener("mouseleave", hideSlider);
+    </script>
+  </body>
+</html>
