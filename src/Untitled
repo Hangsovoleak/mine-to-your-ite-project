@@ -1,0 +1,72 @@
+// ── THEME ──
+function applyTheme(theme) {
+  const app = document.getElementById("app");
+  const icon = document.getElementById("themeIcon");
+  if (!app || !icon) return;
+
+  const isLight = theme === "light";
+
+  app.classList.toggle("light", isLight);
+  localStorage.setItem("theme", theme);
+
+  icon.src = isLight ? "../assets/moon.svg" : "../assets/sun.svg";
+}
+
+function toggleMode() {
+  const current = localStorage.getItem("theme") || "dark";
+  applyTheme(current === "light" ? "dark" : "light");
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  applyTheme(localStorage.getItem("theme") || "dark");
+
+  // MOBILE MENU
+  const toggleBtn = document.getElementById("menuToggle");
+  const menu = document.getElementById("mobile-menu");
+
+  if (toggleBtn && menu) {
+    toggleBtn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+      menu.classList.toggle("flex");
+    });
+  }
+
+  // SEARCH + FILTER (SAFE)
+  const searchInput = document.getElementById("searchInput");
+  const catBtns = document.querySelectorAll('.cat-btn');
+  const items = document.querySelectorAll('.product-item');
+  const emptyState = document.getElementById('emptyState');
+
+  function filterProducts() {
+    if (!searchInput) return;
+
+    const activeCat = document.querySelector('.cat-btn.active')?.dataset.cat || 'all';
+    const query = searchInput.value.toLowerCase().trim();
+    let visible = 0;
+
+    items.forEach(item => {
+      const matchCat = activeCat === 'all' || item.dataset.cat === activeCat;
+      const matchSearch = !query || item.dataset.title.toLowerCase().includes(query);
+
+      const show = matchCat && matchSearch;
+      item.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+
+    if (emptyState) {
+      emptyState.classList.toggle('hidden', visible > 0);
+    }
+  }
+
+  catBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      catBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      filterProducts();
+    });
+  });
+
+  if (searchInput) {
+    searchInput.addEventListener('input', filterProducts);
+  }
+});

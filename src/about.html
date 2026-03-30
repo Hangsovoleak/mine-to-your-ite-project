@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="../dist/output.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="./theme.js" defer></script>
+    <style>
+      #app { transition: background 0.3s, color 0.3s; }
+    
+      body.light {
+        background: linear-gradient(135deg, #f6fbff 0%, #edf6ff 45%, #e8fff9 100%);
+        color: #0f172a;
+      }
+    
+      body.light .nav-glass {
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(15, 23, 42, 0.08);
+      }
+    
+      body.light .nav-menu,
+      body.light .nav-action {
+        background: rgba(126, 223, 219, 0.3) !important;
+        border-color: rgba(126, 223, 219, 0.5) !important;
+      }
+    
+      body.light .nav-menu a {
+        color: #0f172a !important;
+      }
+    
+      body.light .nav-menu a:hover {
+        background: rgba(126, 223, 219, 0.5) !important;
+      }
+    </style>
+    
+</head>
+<body id="app" class="min-h-screen bg-gradient-to-br from-[#00171f] via-[#00202b] to-[#003b46] transition-all duration-300">
+
+   <nav class="fixed top-3 left-3 right-3 sm:top-6 sm:left-8 sm:right-8 z-50">
+      <div class="nav-glass bg-white/15 rounded-3xl shadow-md px-3 sm:px-4 py-3">
+          <div class="max-w-screen-2xl mx-auto flex items-center justify-between">
+
+              <!-- LEFT: Logo -->
+              <a href="#" class="w-12 h-12 rounded-full bg-teal-600 flex items-center justify-center shrink-0">
+                <img src="../assets/MINE.png" class="w-10 h-10 rounded-full"/>
+              </a>
+            
+              <!-- CENTER: Desktop menu only -->
+              <div class="hidden md:flex flex-1 justify-center">
+                <div class="bg-[#002538] rounded-xl px-4 py-2 flex items-center gap-3 border-2 border-[#032c40]">
+                  <a href="#" class="flex items-center gap-2 px-4 py-2 text-sm text-white font-semibold rounded-xl hover:bg-white/20 transition">
+                      <img src="../assets/house.svg" alt="Home" class="w-6 h-6" /> Home
+                  </a>
+                  <a href="./product.page.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white font-semibold rounded-xl hover:bg-white/20 transition">
+                      <img src="../assets/archive.svg" alt="Products" class="w-6 h-6" /> Product
+                  </a>
+                  <a href="#" class="flex items-center gap-2 px-4 py-2 text-sm text-white font-semibold rounded-xl hover:bg-white/20 transition">
+                      <img src="../assets/inbox.svg" alt="Contact" class="w-6 h-6" /> Contact
+                  </a>
+                  <a href="./about.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white font-semibold rounded-xl hover:bg-white/20 transition">
+                      <img src="../assets/book-user.svg" alt="About" class="w-6 h-6" /> About
+                  </a>
+                </div>
+              </div>
+            
+              <!-- RIGHT: Actions -->
+              <div class="flex items-center gap-2">
+            
+                <a href="#" class="w-10 h-10 rounded-full bg-[#002538] flex items-center justify-center">
+                  <img src="../assets/languages.svg" class="w-5 h-5"/>
+                </a>
+            
+                <a href="../src/login.html" class="w-10 h-10 rounded-full bg-[#002538] flex items-center justify-center">
+                  <img src="../assets/user-plus (2).svg" class="w-5 h-5"/>
+                </a>
+            
+                <button onclick="toggleMode()" class="w-10 h-10 rounded-full bg-[#002538] flex items-center justify-center">
+                  <img id="themeIcon" src="../assets/sun.svg" class="w-5 h-5"/>
+                </button>
+            
+                <!-- Mobile menu button -->
+                <button id="menuToggle" class="md:hidden w-10 h-10 flex items-center justify-center">
+                  <img src="../assets/menu (1).svg" class="w-6 h-6"/>
+                </button>
+            
+              </div>
+            </div>
+            <div id="mobile-menu" class="hidden md:hidden mt-2 mx-3 sm:mx-8 bg-[#002538] rounded-xl p-2 flex-col gap-2">
+              <a href="#" class="block px-4 py-2 text-white rounded-lg hover:bg-white/20">Home</a>
+              <a href="./product.page.html" class="block px-4 py-2 text-white rounded-lg hover:bg-white/20">Product</a>
+              <a href="#" class="block px-4 py-2 text-white rounded-lg hover:bg-white/20">Contact</a>
+              <a href="./about.html" class="block px-4 py-2 text-white rounded-lg hover:bg-white/20">About</a>
+            </div>
+      </div>
+  </nav>
+    
+    <!-- <main class="relative z-10 flex flex-col items-center justify-center "> -->
+    <main >
+        <!-- section1 -->
+        <section class="min-h-screen text-center flex flex-col justify-center items-center px-6">
+            <!-- header -->
+             <header></header>
+            <h1 class="text-5xl md:text-6xl font-bold text-[#00c2b3] mb-6 ">
+                ABOUT MINE TO YOU
+            </h1>
+            
+            <p class="text-xl pt-7 text-gray-400 px-4 sm:px-10 md:px-20 leading-10">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus accusantium aut beatae ullam reprehenderit cum. Veniam impedit quae eligendi earum dolores fuga eum? Nobis aperiam illum, officia accusamus officiis assumenda.
+            </p>
+             
+        </section>
+
+        <!-- section2 -->
+                <section class="flex flex-col md:flex-row gap-20 px-10 ">
+                    <!-- left side -->
+                     <div>
+                        <h2 class="text-5xl text-[#00c2b3] md:text-6xl font-bold mb-6 align-middle ">Why</h2>
+
+                        <h2 class="text-5xl text-[#00c2b3] md:text-6xl font-bold mb-6 align-middle ">Mine To You ?</h2>
+
+                        <p class="text-xl mt-10 leading-9">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus at laborum inventore libero voluptas rerum numquam nam minus. Architecto sit assumenda rerum minima quasi, quisquam eveniet voluptatibus reiciendis repudiandae itaque.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse tempore est ullam qui! Nostrum asperiores eaque labore autem rerum quam fugit mollitia sapiente? Optio beatae enim, nihil accusantium tempora modi.</p>
+                     </div>
+                     <!-- right side -->
+                      <img 
+                        class="rounded-3xl w-[400px] "
+                        src="https://i.pinimg.com/736x/44/ac/3c/44ac3cf5bc283256e0ded20a27c241bd.jpg"
+                        alt="logo or image detail about website"
+                    />
+              
+              </section>
+              <!-- mentor -->
+               <section class="flex flex-col gap-20 items-center">
+                  <div class="flex justify-center">
+                     <h2 class="text-3xl md:text-6xl font-bold text-[#00c2b3] mt-50">Our mentor</h2>
+                  </div>
+                  
+                  <div class="max-w-4xl w-full flex flex-col items-center bg-white border border-gray-200 rounded-lg md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 ">
+
+                  <img class="object-cover rounded-full w-full h-96 md:h-auto md:w-48 my-5 ml-5" src="https://i.pinimg.com/736x/49/aa/58/49aa586e791044255491c0d26b17bf2e.jpg" alt="mentor image">
+
+                   <div class="flex flex-col justify-between p-4 leading-normal">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900   dark:text-white">Name:hferohfguoeri</h5>
+                        <p class="mb-3 font-normal ">Role: bnfiewuhtefiuerkj</p>
+                        <p>contact</p>
+                        <div class="flex gap-5 mt-10">
+                           <a class="text-3xl text-[#00c2b3]" href="#">
+                           <i class="fa-brands fa-facebook"></i>
+                        </a>
+                        <a class="text-3xl text-[#00c2b3]" href="#">
+                           <i class="fa-brands fa-telegram"></i>
+                        </a>
+                        <a class="text-3xl text-[#00c2b3]" href="#">
+                           <i class="fa-brands fa-github"></i>
+                        </a>
+                        </div>
+                        
+                  </div>
+
+                  </div>
+                  <!-- team -->
+                  <div class="flex justify-center">
+                     <h2 class="text-3xl md:text-6xl font-bold text-[#00c2b3]">Our members</h2>
+                  </div>
+                  <!-- member -->
+                   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 ">
+                      <!-- 1 -->
+                     <div class="flex flex-col gap-3">
+                     <img class="object-cover h-40 w-40 rounded-full" src="https://i.pinimg.com/736x/27/c2/c1/27c2c1105fffd90485c0af5d87fb7b29.jpg" alt="member1">
+                     
+                        <p class="text-lg font-medium"><strong>Name: </strong>Rorn Hangsovoleak</p>
+                        <p class="text-lg font-medium"><strong>Role: </strong>Build Product Pages</p>
+
+                     <div>
+                        <div class="flex gap-5 ">
+                           <a class="text-3xl text-[#00c2b3]" href="#">
+                           <i class="fa-brands fa-facebook"></i>
+                        </a>
+                        <a class="text-3xl text-[#00c2b3]" href="#">
+                           <i class="fa-brands fa-telegram"></i>
+                        </a>
+                        <a class="text-3xl text-[#00c2b3]" href="https://github.com/Hangsovoleak">
+                           <i class="fa-brands fa-github"></i>
+                        </a>
+                        </div>
+                     </div>
+                     </div>
+                     <!-- 2 -->
+                     <div class="flex flex-col gap-3">
+                     <img class="object-cover h-40 w-40 rounded-full" src="https://i.pinimg.com/736x/a5/7e/72/a57e7205e946c194efbf7bc494e43550.jpg" alt="member1">
+                     
+                        <p class="text-lg font-medium">Name</p>
+                        <p class="text-lg font-medium">Role</p>
+
+                     <div>
+                        <div class="flex gap-5 ">
+                           <a class="text-3xl text-[#00c2b3]" href="#">
+                           <i class="fa-brands fa-facebook"></i>
+                        </a>
+                        <a class="text-3xl text-[#00c2b3]" href="#">
+                           <i class="fa-brands fa-telegram"></i>
+                        </a>
+                        <a class="text-3xl text-[#00c2b3]" href="#">
+                           <i class="fa-brands fa-github"></i>
+                        </a>
+                        </div>
+                     </div>
+                     </div>
+                     <!-- 3 -->
+                      <div class="flex flex-col gap-3">
+                     <img class="object-cover h-40 w-40 rounded-full" src="https://i.pinimg.com/736x/82/39/ef/8239ef9d52e5df84c63d68a55dd3ff1b.jpg" alt="member1">
+                     
+                        <p class="text-lg font-medium">Name</p>
+                        <p class="text-lg font-medium">Role</p>
+
+                     <div>
+                        <div class="flex gap-5 ">
+                           <a class="text-3xl text-[#00c2b3]" href="#">
+                           <i class="fa-brands fa-facebook"></i>
+                        </a>
+                        <a class="text-3xl text-[#00c2b3]" href="#">
+                           <i class="fa-brands fa-telegram"></i>
+                        </a>
+                        <a class="text-3xl text-[#00c2b3]" href="#">
+                           <i class="fa-brands fa-github"></i>
+                        </a>
+                        </div>
+                     </div>
+                     </div>
+                     <!-- 4 -->
+                       <div class="flex flex-col gap-3">
+                     <img class="object-cover h-40 w-40 rounded-full" src="https://i.pinimg.com/736x/c1/81/80/c181805fcdf744d180b439745fc38eef.jpg" alt="member1">
+                     
+                        <p class="text-lg font-medium">Name</p>
+                        <p class="text-lg font-medium">Role</p>
+
+                     <div>
+                        <div class="flex gap-5 ">
+                           <a class="text-3xl text-[#00c2b3]" href="#">
+                           <i class="fa-brands fa-facebook"></i>
+                        </a>
+                        <a class="text-3xl text-[#00c2b3]" href="#">
+                           <i class="fa-brands fa-telegram"></i>
+                        </a>
+                        <a class="text-3xl text-[#00c2b3]" href="#">
+                           <i class="fa-brands fa-github"></i>
+                        </a>
+                        </div>
+                     </div>
+                     </div>
+                   </div>
+                    
+                        
+                  </div>
+
+               </section>
+    </main>
+    <footer class="mt-20 px-6 sm:px-10 py-10 bg-[#002538] text-gray-300">
+      <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+    
+        <!-- Brand -->
+        <div>
+          <h2 class="text-5xl font-bold text-[#00c2b3] mb-3">Mine To Yours</h2>
+          <p class="text-sm leading-6">
+            A platform to share and donate items easily. Give what you don’t need, help someone who does.
+          </p>
+        </div>
+    
+        <!-- Quick Links -->
+        <div>
+          <h3 class="text-lg font-semibold mb-3">Quick Links</h3>
+          <ul class="space-y-2">
+            <li><a href="#" class="hover:text-[#00c2b3]">Home</a></li>
+            <li><a href="./product.page.html" class="hover:text-[#00c2b3]">Product</a></li>
+            <li><a href="#" class="hover:text-[#00c2b3]">Contact</a></li>
+            <li><a href="./about.html" class="hover:text-[#00c2b3]">About</a></li>
+          </ul>
+        </div>
+    
+        <!-- Sponsor -->
+        <div>
+          <h3 class="text-lg font-semibold mb-3">Sponsor</h3>
+          <div class="flex gap-4 items-center">
+            <a href="https://www.rupp.edu.kh/">
+              <img src="../assets/ruppLogo.svg" class="w-12 h-12 rounded-full" alt="RUPP Logo"/>
+            </a>
+            <a href="https://www.fe.rupp.edu.kh/program/7">
+              <img src="../assets/ITELogo.svg" class="w-12 h-12 rounded-full" alt="ITE Logo"/>
+            </a>
+          </div>
+        </div>
+    
+      </div>
+    
+      <!-- Bottom -->
+      <div class="mt-10 border-t border-gray-600 pt-4 text-center text-sm text-gray-400">
+        © Mine To Yours - ITE M2
+      </div>
+    
+      <!-- Light mode protection -->
+      <style>
+        body.light footer {
+          background-color: #002538 !important;
+          color: #d1d5db !important; /* applies to headings and links by default */
+        }
+
+        body.light footer a:hover {
+          color: #00c2b3;
+        }
+      </style>
+    </footer>
+</body>
+</html>
+            
+

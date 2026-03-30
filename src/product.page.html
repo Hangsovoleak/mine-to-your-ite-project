@@ -13,8 +13,9 @@
             }
 
             body.light .nav-glass {
-                background: rgba(255, 255, 255, 0.85);
+                background: rgba(255, 255, 255, 0.2);
                 border: 1px solid rgba(15, 23, 42, 0.08);
+                backdrop-filter: blur(10px);
             }
 
             body.light .nav-menu,
@@ -22,10 +23,14 @@
             body.light .search-shell,
             body.light .cat-shell,
             body.light .load-more-btn,
-            body.light .btn-secondary {
-                background: #ffffff !important;
-                border-color: #e5e7eb !important;
-                color: #0f172a !important;
+            body.light .btn-secondary,
+            body.light .nav-action button,
+            body.light .nav-action a,
+            body.light .nav-menu a,
+            body.light .nav-menu button {
+                background: #c0f2f8 !important;
+                border-color: #a0e0ea !important;
+                color: #056f7f !important;
             }
 
             body.light .nav-menu a {
@@ -33,7 +38,7 @@
             }
 
             body.light .nav-menu a:hover {
-                background: #7edfdb !important;
+                background: rgba(126, 223, 219, 0.5) !important;
             }
 
             body.light .hero-kicker {
@@ -46,7 +51,7 @@
             }
 
             body.light .stat-card {
-                background: rgba(255, 255, 255, 0.8) !important;
+                background: rgba(255, 255, 255, 0.15) !important;
                 border-color: #dbeafe !important;
             }
 
@@ -67,11 +72,11 @@
             }
 
             body.light .cat-btn:hover {
-                background: #7edfdb !important;
+                background: rgba(126, 223, 219, 0.5) !important;
             }
 
             body.light .product-item {
-                background: rgba(255, 255, 255, 0.65) !important;
+                background: rgba(255, 255, 255, 0.15) !important;
                 border-color: #dbeafe !important;
             }
 
@@ -103,6 +108,24 @@
                 background: #f5f3ff !important;
                 color: #6d28d9 !important;
             }
+
+            body.light .nav-menu a,
+            body.light #mobile-menu a {
+                color: #056f7f !important;
+                background: #c0f2f8 !important;
+                border-radius: 12px;
+            }
+
+            body.light .nav-action a,
+            body.light .nav-action button {
+                background: #c0f2f8 !important;
+                color: #056f7f !important;
+            }
+
+            /* Desktop hover */
+            body.light .nav-menu a:hover {
+                background: rgba(126, 223, 219, 0.5) !important;
+            }
         </style>
     </head>
 
@@ -112,55 +135,60 @@
             <section class="relative w-full min-h-screen overflow-hidden">
 
                 <nav class="fixed top-3 left-3 right-3 sm:top-6 sm:left-8 sm:right-8 z-50">
-                    <div class="nav-glass bg-white/15 rounded-xl shadow-md px-3 sm:px-4 py-3">
-                        <div class="max-w-screen-3xl mx-auto flex items-center gap-2 sm:gap-3">
-                            <a href="#" type="button"
-                                class="w-14 h-14 rounded-full bg-teal-600 flex items-center justify-center shrink-0 transition-all duration-300 hover:border-teal-600 border-2">
-                                <img src="../assets/MINE.png" alt="MINE TO YOURS logo" class="w-12 h-12 rounded-full"/>
+                    <div class="nav-glass bg-white/15 rounded-3xl shadow-md px-3 sm:px-4 py-3">
+                        <div class="max-w-screen-2xl mx-auto flex items-center justify-between">
+        
+                            <!-- LEFT: Logo -->
+                            <a href="#" class="w-12 h-12 rounded-full bg-teal-600 flex items-center justify-center shrink-0">
+                              <img src="../assets/MINE.png" class="w-10 h-10 rounded-full"/>
                             </a>
-
-                            <div class="flex-1 flex justify-center px-1 sm:px-4 overflow-hidden">
-                                <div class="nav-menu bg-[#002538] rounded-xl px-3 sm:px-6 py-2 flex items-center gap-1 sm:gap-2 lg:gap-4 border-2 border-[#032c40] overflow-x-auto whitespace-nowrap max-w-full">
-                                    <a href="#"
-                                        class="flex items-center gap-2 px-4 py-2 text-sm text-white font-semibold rounded-xl hover:bg-white/20 transition">
-                                        <img src="../assets/house.svg" alt="House logo" class="w-6 h-6" />
-                                        Home
-                                    </a>
-
-
-                                    <a href="../src/product.page.html"
-                                        class="flex items-center gap-2 px-4 py-2 text-sm text-white font-semibold rounded-xl hover:bg-white/20 transition">
-                                        <img src="../assets/archive.svg" alt="Archive logo" class="w-6 h-6" />
-                                        Product
-                                    </a>
-
-                                    <a href="#"
-                                        class="flex items-center gap-2 px-4 py-2 text-sm text-white font-semibold rounded-xl hover:bg-white/20 transition">
-                                        <img src="../assets/inbox.svg" alt="Inbox logo" class="w-6 h-6" />
-                                        Contact
-                                    </a>
-
-                                    <a href="#"
-                                        class="flex items-center gap-2 px-4 py-2 text-sm text-white font-semibold rounded-xl hover:bg-white/20 transition">
-                                        <img src="../assets/book-user.svg" alt="Book User logo" class="w-6 h-6" />
-                                        About
-                                    </a>
-                                </div>
-                            </div>
-
-                            <button type="button" class="nav-action w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#002538] flex items-center justify-center shrink-0 mx-1 sm:mx-2">
-                                <a
-                                    href="../src/login.html"
-                                >
-                                    <img class="w-6 h-6" src="../assets/user-plus (2).svg" alt="user logo" />
+                          
+                            <!-- CENTER: Desktop menu only -->
+                            <div class="hidden md:flex flex-1 justify-center">
+                              <div class="bg-[#002538] rounded-xl px-4 py-2 flex items-center gap-3 border-2 border-[#032c40] nav-menu">
+                                <a href="#" class="flex items-center gap-2 px-4 py-2 text-sm text-white font-semibold rounded-xl hover:bg-white/20 transition">
+                                    <img src="../assets/house.svg" alt="Home" class="w-6 h-6" /> Home
                                 </a>
-                                
-                            </button>
-
-                            <button onclick="toggleMode()" class="nav-action w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#002538] flex items-center justify-center">
-                                <img id="themeIcon" src="../assets/sun.svg" class="w-7 h-7" />
-                            </button>
-                        </div>
+                                <a href="./product.page.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white font-semibold rounded-xl hover:bg-white/20 transition">
+                                    <img src="../assets/archive.svg" alt="Products" class="w-6 h-6" /> Product
+                                </a>
+                                <a href="#" class="flex items-center gap-2 px-4 py-2 text-sm text-white font-semibold rounded-xl hover:bg-white/20 transition">
+                                    <img src="../assets/inbox.svg" alt="Contact" class="w-6 h-6" /> Contact
+                                </a>
+                                <a href="./about.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white font-semibold rounded-xl hover:bg-white/20 transition">
+                                    <img src="../assets/book-user.svg" alt="About" class="w-6 h-6" /> About
+                                </a>
+                              </div>
+                            </div>
+                          
+                            <!-- RIGHT: Actions -->
+                            <div class="flex items-center gap-2">
+                          
+                              <a href="#" class="w-10 h-10 rounded-full bg-[#002538] flex items-center justify-center">
+                                <img src="../assets/languages.svg" class="w-5 h-5"/>
+                              </a>
+                          
+                              <a href="../src/login.html" class="w-10 h-10 rounded-full bg-[#002538] flex items-center justify-center">
+                                <img src="../assets/user-plus (2).svg" class="w-5 h-5"/>
+                              </a>
+                          
+                              <button onclick="toggleMode()" class="w-10 h-10 rounded-full bg-[#002538] flex items-center justify-center">
+                                <img id="themeIcon" src="../assets/sun.svg" class="w-5 h-5"/>
+                              </button>
+                          
+                              <!-- Mobile menu button -->
+                              <button id="menuToggle" class="md:hidden w-10 h-10 flex items-center justify-center">
+                                <img src="../assets/menu (1).svg" class="w-6 h-6"/>
+                              </button>
+                          
+                            </div>
+                          </div>
+                          <div id="mobile-menu" class="hidden md:hidden mt-2 mx-3 sm:mx-8 bg-[#002538] rounded-xl p-2 flex-col gap-2">
+                            <a href="#" class="block px-4 py-2 text-white rounded-lg hover:bg-white/20">Home</a>
+                            <a href="./product.page.html" class="block px-4 py-2 text-white rounded-lg hover:bg-white/20">Product</a>
+                            <a href="#" class="block px-4 py-2 text-white rounded-lg hover:bg-white/20">Contact</a>
+                            <a href="./about.html" class="block px-4 py-2 text-white rounded-lg hover:bg-white/20">About</a>
+                          </div>
                     </div>
                 </nav>
 
@@ -223,51 +251,52 @@
                     </div>
                 </div>
 
-                <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6">
+                <div class="relative z-10 max-w-6xl mx-auto px-8 sm:px-6">
                     <!-- Category buttons -->
                     <div class="flex justify-start sm:justify-center mb-8 sm:mb-10 overflow-x-auto">
                         <div
-                            class="cat-shell bg-[#002538] inline-flex flex-nowrap sm:flex-wrap items-center gap-2 rounded-xl px-3 sm:px-4 py-3 mb-6 sm:mb-10 border-2 border-[#032c40] min-w-max">
+                            class="cat-shell bg-[#002538] inline-flex flex-nowrap sm:flex-wrap items-center gap-10 rounded-xl px-8 sm:px-4 py-3 mb-6 sm:mb-10 border-2 border-[#032c40] min-w-max">
                             <button
                                 class="cat-btn tooltip active flex items-center gap-2 px-4 py-2 rounded-xl hover:bg-white/20 transition">
-                                <img src="../assets/paperclip (1).svg" alt="All Products" class="w-4 h-4 text-white/70" />
-                                <span class="text-white text-xs font-semibold hover:text-white">All</span>
+                                <img src="../assets/paperclip (1).svg" alt="All Products" class="w-6 h-6 text-white/70" />
+                                <span class="text-white text-sm font-semibold hover:text-white">All</span>
                             </button>
 
                             <button
                                 class="cat-btn tooltip active flex items-center gap-2 px-4 py-2 rounded-xl hover:bg-white/20 transition">
-                                <img src="../assets/backpack (1).svg" alt="Education" class="w-4 h-4 text-white/70" />
-                                <span class="text-[#07a497] text-xs font-semibold hover:text-white">Education</span>
+                                <img src="../assets/backpack (1).svg" alt="Education" class="w-6 h-6 text-white/70" />
+                                <span class="text-[#07a497] text-sm font-semibold hover:text-white">Education</span>
                             </button>
 
                             <button
                                 class="cat-btn tooltip active flex items-center gap-2 px-4 py-2 rounded-xl hover:bg-white/20 transition">
-                                <img src="../assets/brush-cleaning (1).svg" alt="Household" class="w-4 h-4 text-white/70" />
-                                <span class="text-[#07a497] text-xs font-semibold hover:text-white">Household</span>
+                                <img src="../assets/brush-cleaning (1).svg" alt="Household" class="w-6 h-6 text-white/70" />
+                                <span class="text-[#07a497] text-sm font-semibold hover:text-white">Household</span>
                             </button>
 
                             <button
                                 class="cat-btn tooltip active flex items-center gap-2 px-4 py-2 rounded-xl hover:bg-white/20 transition">
-                                <img src="../assets/hospital (1).svg" alt="Healthcare" class="w-4 h-4 text-white/70" />
-                                <span class="text-[#07a497] text-xs font-semibold hover:text-white">Healthcare</span>
+                                <img src="../assets/hospital (1).svg" alt="Healthcare" class="w-6 h-6 text-white/70" />
+                                <span class="text-[#07a497] text-sm font-semibold hover:text-white">Healthcare</span>
                             </button>
 
                             <button
                                 class="cat-btn tooltip active flex items-center gap-2 px-4 py-2 rounded-xl hover:bg-white/20 transition">
-                                <img src="../assets/salad (1).svg" alt="Food" class="w-4 h-4 text-white/70" />
-                                <span class="text-[#07a497] text-xs font-semibold hover:text-white">Food</span>
+                                <img src="../assets/salad (1).svg" alt="Food" class="w-6 h-6 text-white/70" />
+                                <span class="text-[#07a497] text-sm font-semibold hover:text-white">Food</span>
                             </button>
 
                             <button
                                 class="cat-btn tooltip active flex items-center gap-2 px-4 py-2 rounded-xl hover:bg-white/20 transition">
-                                <img src="../assets/baby (1).svg" alt="Baby" class="w-4 h-4 text-white/70" />
-                                <span class="text-[#07a497] text-xs font-semibold hover:text-white">Baby</span>
+                                <img src="../assets/baby (1).svg" alt="Baby" class="w-6 h-6 text-white/70" />
+                                <span class="text-[#07a497] text-sm font-semibold hover:text-white">Baby</span>
                             </button>
                         </div>
                     </div>
 
-                    <div class="flex mb-6 justify-center sm:justify-start">
-                        <div class="search-shell w-full sm:w-auto sm:min-w-[360px] max-w-sm bg-[#002538] inline-flex items-center gap-2 rounded-xl px-5 sm:px-10 py-2 border-2 border-[#032c40]">
+                    <div class="flex mb-8 justify-center sm:justify-start">
+                        <div class="search-shell w-full sm:w-auto sm:min-w-[360px] max-w-md bg-[#002538] inline-flex items-center gap-2 rounded-xl px-5 sm:px-10 py-2 border-2 border-[#032c40]">
+                            <img src="../assets//search.svg" alt="Baby" class="w-4 h-4 text-white/70" />
                             <input id="searchInput" type="text" placeholder="Search items…" class="search-input text-white text-sm w-full bg-transparent outline-none" />
                         </div>
                     </div>
@@ -457,5 +486,60 @@
                 </div>
             </section>
         </article>
+
+        <footer class="mt-20 px-6 sm:px-10 py-10 bg-[#002538] text-gray-300">
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+          
+              <!-- Brand -->
+              <div>
+                <h2 class="text-5xl font-bold text-[#00c2b3] mb-3">Mine To Yours</h2>
+                <p class="text-sm leading-6">
+                  A platform to share and donate items easily. Give what you don’t need, help someone who does.
+                </p>
+              </div>
+          
+              <!-- Quick Links -->
+              <div>
+                <h3 class="text-lg font-semibold mb-3">Quick Links</h3>
+                <ul class="space-y-2">
+                  <li><a href="#" class="hover:text-[#00c2b3]">Home</a></li>
+                  <li><a href="./product.page.html" class="hover:text-[#00c2b3]">Product</a></li>
+                  <li><a href="#" class="hover:text-[#00c2b3]">Contact</a></li>
+                  <li><a href="./about.html" class="hover:text-[#00c2b3]">About</a></li>
+                </ul>
+              </div>
+          
+              <!-- Sponsor -->
+              <div>
+                <h3 class="text-lg font-semibold mb-3">Sponsor</h3>
+                <div class="flex gap-4 items-center">
+                  <a href="https://www.rupp.edu.kh/">
+                    <img src="../assets/ruppLogo.svg" class="w-12 h-12 rounded-full" alt="RUPP Logo"/>
+                  </a>
+                  <a href="https://www.fe.rupp.edu.kh/program/7">
+                    <img src="../assets/ITELogo.svg" class="w-12 h-12 rounded-full" alt="ITE Logo"/>
+                  </a>
+                </div>
+              </div>
+          
+            </div>
+          
+            <!-- Bottom -->
+            <div class="mt-10 border-t border-gray-600 pt-4 text-center text-sm text-gray-400">
+              © Mine To Yours - ITE M2
+            </div>
+          
+            <!-- Light mode protection -->
+            <style>
+              body.light footer {
+                background-color: #002538 !important;
+                color: #d1d5db !important; /* applies to headings and links by default */
+              }
+
+              body.light footer a:hover {
+                color: #00c2b3;
+              }
+            </style>
+          </footer>
     </body>
 </html>

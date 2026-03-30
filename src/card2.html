@@ -3,19 +3,196 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Used School Backpack</title>
+        <title>Biology Textbook (Grade 11)</title>
         <link rel="stylesheet" href="../dist/output.css" />
+
+        <!-- theme.js MUST be in <head> so theme applies before paint (no flash) -->
+        <script src="./theme.js"></script>
+
+        <style>
+            #app { transition: background 0.3s, color 0.3s; }
+
+            /* ── LIGHT MODE ── */
+            body.light {
+                background: linear-gradient(135deg, #f6fbff 0%, #edf6ff 45%, #e8fff9 100%);
+                color: #0f172a;
+            }
+
+            /* Nav */
+            body.light .nav-glass {
+                background: rgba(255, 255, 255, 0.15);
+                border: 1px solid rgba(15, 23, 42, 0.08);
+            }
+            body.light .nav-menu,
+            body.light .nav-action {
+                background: rgba(126, 223, 219, 0.3) !important;
+                border-color: rgba(126, 223, 219, 0.5) !important;
+            }
+            body.light .nav-menu a {
+                color: #0f172a !important;
+            }
+            body.light .nav-menu a:hover {
+                background: rgba(126, 223, 219, 0.5) !important;
+            }
+
+            /* Breadcrumb */
+            body.light .breadcrumb-link { color: #475569 !important; }
+            body.light .breadcrumb-link:hover { color: #0f172a !important; }
+            body.light .breadcrumb-sep { color: #94a3b8 !important; }
+            body.light .breadcrumb-current { color: #0d9488 !important; }
+
+            /* Image shell */
+            body.light .img-shell {
+                background: #ffffff !important;
+                border-color: #cbd5e1 !important;
+            }
+
+            /* Available badge */
+            body.light .badge-available {
+                background: #dcfce7 !important;
+                color: #166534 !important;
+            }
+
+            /* Meta text */
+            body.light .meta-text { color: #64748b !important; }
+
+            /* Info boxes */
+            body.light .info-teal {
+                background: rgba(204, 251, 241, 0.6) !important;
+                border-color: #5eead4 !important;
+                color: #134e4a !important;
+            }
+            body.light .info-teal .info-label { color: #0f766e !important; }
+
+            body.light .info-blue {
+                background: rgba(219, 234, 254, 0.6) !important;
+                border-color: #93c5fd !important;
+                color: #1e3a5f !important;
+            }
+            body.light .info-blue .info-label { color: #1d4ed8 !important; }
+
+            body.light .info-red {
+                background: rgba(254, 226, 226, 0.6) !important;
+                border-color: #fca5a5 !important;
+                color: #7f1d1d !important;
+            }
+            body.light .info-red .info-label { color: #b91c1c !important; }
+
+            /* Right side */
+            body.light .cat-pill { background: #dbeafe !important; color: #1d4ed8 !important; }
+            body.light .item-title { color: #0f172a !important; }
+            body.light .meta-pill {
+                background: rgba(20, 184, 166, 0.15) !important;
+                border-color: rgba(20, 184, 166, 0.4) !important;
+                color: #0f766e !important;
+            }
+            body.light .section-label { color: #0d9488 !important; }
+            body.light .desc-body { color: #334155 !important; }
+            body.light .dot-filled { background: #0d9488 !important; }
+            body.light .dot-empty { background: #cbd5e1 !important; }
+            body.light .condition-text { color: #0f766e !important; }
+
+            /* Donor card */
+            body.light .donor-card {
+                background: #f0fdfa !important;
+                border-color: #99f6e4 !important;
+            }
+            body.light .donor-label { color: #0d9488 !important; }
+            body.light .donor-name { color: #0f172a !important; }
+            body.light .donor-location { color: #64748b !important; }
+            body.light .donor-divider { border-color: #cbd5e1 !important; }
+            body.light .donor-count {
+                background: rgba(20, 184, 166, 0.15) !important;
+                color: #0f766e !important;
+            }
+            body.light .pickup-title { color: #0f172a !important; }
+            body.light .pickup-sub { color: #64748b !important; }
+
+            /* Buttons */
+            body.light .btn-request {
+                background: #0d9488 !important;
+                color: #ffffff !important;
+            }
+            body.light .btn-request:hover { background: #0f766e !important; }
+            body.light .btn-share {
+                border-color: #cbd5e1 !important;
+                background: #f8fafc !important;
+            }
+            body.light .btn-share:hover { background: #e2e8f0 !important; }
+        </style>
     </head>
-    <body class="min-h-screen bg-gradient-to-br from-[#00171f] via-[#00202b] to-[#003b46]">
-        <section class="max-w-7xl mx-auto px-6 py-12">
+
+    <body id="app" class="min-h-screen bg-gradient-to-br from-[#00171f] via-[#00202b] to-[#003b46] transition-all duration-300">
+
+        <!-- ── NAV (matches product page, includes theme toggle) ── -->
+        <nav class="fixed top-3 left-3 right-3 sm:top-6 sm:left-8 sm:right-8 z-50">
+            <div class="nav-glass bg-white/15 rounded-3xl shadow-md px-3 sm:px-4 py-3">
+                <div class="max-w-screen-2xl mx-auto flex items-center justify-between">
+
+                    <!-- LEFT: Logo -->
+                    <a href="#" class="w-12 h-12 rounded-full bg-teal-600 flex items-center justify-center shrink-0">
+                      <img src="../assets/MINE.png" class="w-10 h-10 rounded-full"/>
+                    </a>
+                  
+                    <!-- CENTER: Desktop menu only -->
+                    <div class="hidden md:flex flex-1 justify-center">
+                      <div class="bg-[#002538] rounded-xl px-4 py-2 flex items-center gap-3 border-2 border-[#032c40]">
+                        <a href="#" class="flex items-center gap-2 px-4 py-2 text-sm text-white font-semibold rounded-xl hover:bg-white/20 transition">
+                            <img src="../assets/house.svg" alt="Home" class="w-6 h-6" /> Home
+                        </a>
+                        <a href="./product.page.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white font-semibold rounded-xl hover:bg-white/20 transition">
+                            <img src="../assets/archive.svg" alt="Products" class="w-6 h-6" /> Product
+                        </a>
+                        <a href="#" class="flex items-center gap-2 px-4 py-2 text-sm text-white font-semibold rounded-xl hover:bg-white/20 transition">
+                            <img src="../assets/inbox.svg" alt="Contact" class="w-6 h-6" /> Contact
+                        </a>
+                        <a href="./about.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white font-semibold rounded-xl hover:bg-white/20 transition">
+                            <img src="../assets/book-user.svg" alt="About" class="w-6 h-6" /> About
+                        </a>
+                      </div>
+                    </div>
+                  
+                    <!-- RIGHT: Actions -->
+                    <div class="flex items-center gap-2">
+                  
+                      <a href="#" class="w-10 h-10 rounded-full bg-[#002538] flex items-center justify-center">
+                        <img src="../assets/languages.svg" class="w-5 h-5"/>
+                      </a>
+                  
+                      <a href="../src/login.html" class="w-10 h-10 rounded-full bg-[#002538] flex items-center justify-center">
+                        <img src="../assets/user-plus (2).svg" class="w-5 h-5"/>
+                      </a>
+                  
+                      <button onclick="toggleMode()" class="w-10 h-10 rounded-full bg-[#002538] flex items-center justify-center">
+                        <img id="themeIcon" src="../assets/sun.svg" class="w-5 h-5"/>
+                      </button>
+                  
+                      <!-- Mobile menu button -->
+                      <button id="menuToggle" class="md:hidden w-10 h-10 flex items-center justify-center">
+                        <img src="../assets/menu (1).svg" class="w-6 h-6"/>
+                      </button>
+                  
+                    </div>
+                  </div>
+                  <div id="mobile-menu" class="hidden md:hidden mt-2 mx-3 sm:mx-8 bg-[#002538] rounded-xl p-2 flex-col gap-2">
+                    <a href="#" class="block px-4 py-2 text-white rounded-lg hover:bg-white/20">Home</a>
+                    <a href="./product.page.html" class="block px-4 py-2 text-white rounded-lg hover:bg-white/20">Product</a>
+                    <a href="#" class="block px-4 py-2 text-white rounded-lg hover:bg-white/20">Contact</a>
+                    <a href="./about.html" class="block px-4 py-2 text-white rounded-lg hover:bg-white/20">About</a>
+                  </div>
+            </div>
+        </nav>
+
+        <!-- ── MAIN CONTENT ── -->
+        <section class="max-w-7xl mx-auto px-6 pt-36 pb-12">
 
             <!-- Breadcrumb -->
-            <div class="text-sm text-slate-400 mb-8 flex items-center gap-2">
-                <a href="#" class="hover:text-white">Home</a>
-                <span>›</span>
-                <a href="./product.page.html" class="hover:text-white">Products</a>
-                <span>›</span>
-                <span class="text-teal-400 font-semibold">Biology Textbook (Grade 11)</span>
+            <div class="text-sm mb-8 flex items-center gap-2">
+                <a href="#" class="breadcrumb-link text-slate-400 hover:text-white transition">Home</a>
+                <span class="breadcrumb-sep text-slate-400">›</span>
+                <a href="./product.page.html" class="breadcrumb-link text-slate-400 hover:text-white transition">Products</a>
+                <span class="breadcrumb-sep text-slate-400">›</span>
+                <span class="breadcrumb-current text-teal-400 font-semibold">Biology Textbook (Grade 11)</span>
             </div>
 
             <!-- Main Grid -->
@@ -23,82 +200,59 @@
 
                 <!-- LEFT SIDE -->
                 <div>
-
-                    <!-- Main Image -->
-                    <div class="relative rounded-2xl border border-white/20 bg-[#002538] h-[420px] flex items-center justify-center overflow-hidden">
-                        
-                        <img
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUWBa7RTy8UeuTDyjKNMrQlo3twR-r4azHtg&s"
-                        class="max-h-full object-contain rounded-xl"
-                        />
-
-                        <span class="absolute top-4 left-4 bg-emerald-200 text-emerald-900 text-xs px-3 py-1 rounded-full font-medium">
-                             Available
+                    <div class="img-shell relative rounded-2xl border border-white/20 bg-[#002538] h-[420px] flex items-center justify-center overflow-hidden">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUWBa7RTy8UeuTDyjKNMrQlo3twR-r4azHtg&s"
+                            class="max-h-full object-contain rounded-xl" alt="Used School Backpack" />
+                        <span class="badge-available absolute top-4 left-4 bg-emerald-200 text-emerald-900 text-xs px-3 py-1 rounded-full font-medium">
+                            Available
                         </span>
                     </div>
 
-                    <p class="text-xs text-slate-400 mt-4">
+                    <p class="meta-text text-xs text-slate-400 mt-4">
                         Posted 3 days ago · Item ID: 123456789
                     </p>
 
-                    <!-- Safety Reminder -->
-                    <div class="bg-teal-900/40 border border-white/10 rounded-xl p-4 text-sm text-slate-300 mt-10">
-                        <span class="font-semibold text-teal-300">Item condition:</span>
+                    <div class="info-teal bg-teal-900/40 border border-white/10 rounded-xl p-4 text-sm text-slate-300 mt-10">
+                        <span class="info-label font-semibold text-teal-300">Item condition:</span>
                         This Grade 11 Biology textbook is in good condition with all pages intact. There may be light highlights or notes inside, but the content remains clear and fully readable.
                     </div>
-                    
-                    <div class="bg-blue-900/40 border border-white/10 rounded-xl p-4 text-sm text-slate-300 mt-5">
-                        <span class="font-semibold text-blue-300">ព័ត៌មានអំពីសៀវភៅ:</span>
+
+                    <div class="info-blue bg-blue-900/40 border border-white/10 rounded-xl p-4 text-sm text-slate-300 mt-5">
+                        <span class="info-label font-semibold text-blue-300">ព័ត៌មានអំពីសម្ភារៈ:</span>
                         សៀវភៅជីវវិទ្យា ថ្នាក់ទី១១ នេះនៅស្ថានភាពល្អ ទំព័រគ្រប់គ្រាន់ មិនខូច។ អាចមានការគូសបន្ទាត់ ឬកំណត់ចំណាំតិចតួច ប៉ុន្តែអានបានច្បាស់លាស់។
                     </div>
-                    
-                    <div class="bg-red-900/40 border border-white/10 rounded-xl p-4 text-sm text-slate-300 mt-5">
-                        <span class="font-semibold text-red-300">Usage note:</span>
+
+                    <div class="info-red bg-red-900/40 border border-white/10 rounded-xl p-4 text-sm text-slate-300 mt-5">
+                        <span class="info-label font-semibold text-red-300">Usage note:</span>
                         Ideal for students preparing for exams or daily study. Please review the book at pickup to ensure it meets your expectations.
                     </div>
                 </div>
 
-
                 <!-- RIGHT SIDE -->
                 <div>
-
-                    <!-- Category -->
-                    <span class="bg-blue-100 text-blue-600 text-sm font-semibold px-4 py-1 rounded-full">
-                         Education
+                    <span class="cat-pill bg-blue-100 text-blue-600 text-sm font-semibold px-4 py-1 rounded-full">
+                        Education
                     </span>
 
-                    <!-- Title -->
-                    <h1 class="text-4xl font-bold text-white mt-4">
+                    <h1 class="item-title text-4xl font-bold text-white mt-4">
                         Biology Textbook (Grade 11)
                     </h1>
 
-                    <!-- Meta -->
                     <div class="flex gap-3 mt-6 flex-wrap">
-
-                        <span class="px-4 py-2 text-sm rounded-full bg-teal-500/40 border border-teal-500/40 text-teal-300">
-                            <img src="../assets/map-pin.svg" class="w-4 h-4 inline-block mr-1" />
-                            Phnom Penh
+                        <span class="meta-pill px-4 py-2 text-sm rounded-full bg-teal-500/40 border border-teal-500/40 text-teal-300">
+                            <img src="../assets/map-pin.svg" class="w-4 h-4 inline-block mr-1" alt="" /> Phnom Penh
                         </span>
-
-                        <span class="px-4 py-2 text-sm rounded-full bg-teal-500/40 border border-teal-500/40 text-teal-300">
-                            <img src="../assets/shopping-basket.svg" class="w-4 h-4 inline-block mr-1" />
-                            Free
+                        <span class="meta-pill px-4 py-2 text-sm rounded-full bg-teal-500/40 border border-teal-500/40 text-teal-300">
+                            <img src="../assets/shopping-basket.svg" class="w-4 h-4 inline-block mr-1" alt="" /> Free
                         </span>
-
-                        <span class="px-4 py-2 text-sm rounded-full bg-teal-500/40 border border-teal-500/40 text-teal-300">
-                            <img src="../assets/shopping-cart.svg" class="w-4 h-4 inline-block mr-1" />
-                            1 item available
+                        <span class="meta-pill px-4 py-2 text-sm rounded-full bg-teal-500/40 border border-teal-500/40 text-teal-300">
+                            <img src="../assets/shopping-cart.svg" class="w-4 h-4 inline-block mr-1" alt="" /> 5 items available
                         </span>
-
                     </div>
 
-                    <!-- Description -->
                     <div class="mt-10">
-                        <p class="text-teal-400 text-sm font-semibold tracking-wide">
-                            DESCRIPTION
-                        </p>
-
-                        <p class="text-slate-300 mt-4 leading-relaxed">
+                        <p class="section-label text-teal-400 text-sm font-semibold tracking-wide">DESCRIPTION</p>
+                        <p class="desc-body text-slate-300 mt-4 leading-relaxed">
                             A well-maintained Grade 11 Biology textbook that is still in good condition. 
                             It includes all chapters, diagrams, and exercises necessary for the school curriculum. 
                             The pages are clean with minimal annotations, and the cover shows slight signs of use. 
@@ -106,99 +260,121 @@
                         </p>
                     </div>
 
-                    <!-- Condition -->
                     <div class="mt-8">
-
-                        <p class="text-teal-400 text-sm font-semibold mb-3">
-                            CONDITION
-                        </p>
-
+                        <p class="section-label text-teal-400 text-sm font-semibold mb-3">CONDITION</p>
                         <div class="flex items-center gap-3">
                             <div class="flex gap-2">
-                                <div class="w-3 h-3 bg-teal-400 rounded-full"></div>
-                                <div class="w-3 h-3 bg-teal-400 rounded-full"></div>
-                                <div class="w-3 h-3 bg-teal-400 rounded-full"></div>
-                                <div class="w-3 h-3 bg-teal-400 rounded-full"></div>
-                                <div class="w-3 h-3 bg-teal-400 rounded-full"></div>
+                                <div class="dot-filled w-3 h-3 bg-teal-400 rounded-full"></div>
+                                <div class="dot-filled w-3 h-3 bg-teal-400 rounded-full"></div>
+                                <div class="dot-filled w-3 h-3 bg-teal-400 rounded-full"></div>
+                                <div class="dot-filled w-3 h-3 bg-teal-400 rounded-full"></div>
+                                <div class="dot-empty w-3 h-3 bg-teal-400 rounded-full"></div>
                             </div>
-
-                            <span class="text-teal-300 text-sm">
-                                Best
-                            </span>
+                            <span class="condition-text text-teal-300 text-sm">Best</span>
                         </div>
                     </div>
 
                     <div class="mt-10 space-y-6">
+                        <div class="donor-card bg-[#00303a]/70 border border-white/10 rounded-2xl p-6">
+                            <p class="donor-label text-teal-400 text-xs font-semibold tracking-wider mb-4">DONATED BY</p>
 
-                        <!-- Donor Card -->
-                        <div class="bg-[#00303a]/70 border border-white/10 rounded-2xl p-6">
-
-                            <p class="text-teal-400 text-xs font-semibold tracking-wider mb-4">
-                                DONATED BY
-                            </p>
-
-                            <!-- Donor Info -->
                             <div class="flex items-center justify-between">
-
                                 <div class="flex items-center gap-4">
-                                    <div class="w-12 h-12 rounded-full bg-teal-900 flex items-center justify-center text-xl">
-                                        <img src="../assets/pf_1.jpg" class="w-12 h12 rounded-full"/>
+                                    <div class="w-12 h-12 rounded-full overflow-hidden">
+                                        <img src="../assets/pf_1.jpg" class="w-12 h-12 rounded-full object-cover" alt="Donor" />
                                     </div>
-
                                     <div>
-                                        <p class="text-white font-semibold">Jungkook</p>
-                                        <p class="text-slate-400 text-sm">
-                                            Sen Sok · Phnom Penh
-                                        </p>
+                                        <p class="donor-name text-white font-semibold">Sambath</p>
+                                        <p class="donor-location text-slate-400 text-sm">Sen Sok · Phnom Penh</p>
                                     </div>
                                 </div>
-
-                                <span class="text-xs px-3 py-1 rounded-full bg-teal-500/20 text-teal-300">
-                                    1 donation
+                                <span class="donor-count text-xs px-3 py-1 rounded-full bg-teal-500/20 text-teal-300">
+                                    4 donations
                                 </span>
-
                             </div>
 
-                            <!-- Divider -->
-                            <div class="border-t border-white/10 my-5"></div>
+                            <div class="donor-divider border-t border-white/10 my-5"></div>
 
-                            <!-- Pickup -->
                             <div class="flex gap-4 items-start">
-
-                                <div class="w-10 h-10 rounded-full bg-teal-900/40 flex items-center justify-center text-teal-400">
-                                    <img src="../assets/google.jpg" class="w-10 h10 rounded-full"/>
+                                <div class="w-10 h-10 rounded-full overflow-hidden">
+                                    <img src="../assets/google.jpg" class="w-10 h-10 rounded-full object-cover" alt="Map" />
                                 </div>
-
                                 <div>
-                                    <p class="text-white font-medium">Sen Sok, Phnom Penh</p>
-                                    <p class="text-xs text-slate-400 mt-1">
-                                        Exact address shared after request is accepted.
-                                    </p>
+                                    <p class="pickup-title text-white font-medium">Sen Sok, Phnom Penh</p>
+                                    <p class="pickup-sub text-xs text-slate-400 mt-1">Exact address shared after request is accepted.</p>
                                 </div>
                             </div>
 
                             <iframe class="mt-6 rounded-xl h-64"
                                 src="https://www.google.com/maps?q=11.5564,104.9282&z=15&output=embed"
-                                width="100%"
-                                height="400"
-                                style="border:0;">
-                            </iframe>
+                                width="100%" height="400" style="border:0;" title="Map"></iframe>
                         </div>
 
-
-                        <!-- Request Button -->
-                        <button class="w-full bg-teal-500 hover:bg-teal-400 text-black font-semibold py-4 rounded-full flex items-center justify-center gap-2 transition">
-                            Request This Item
-                        </button>
-
-
-                        <!-- Share Button -->
-                        <button class="w-full border border-white/10 text-slate-300 py-4 rounded-full flex items-center justify-center gap-2 hover:bg-white/5 transition">
-                            Share This Item
-                        </button>
+                        <div class="flex gap-4 mt-6">
+                            <button class="btn-request flex-1 bg-teal-500 hover:bg-teal-400 text-black font-semibold py-4 rounded-full flex items-center justify-center gap-2 transition">
+                                Request This Item
+                            </button>
+                            <button class="btn-share border border-white/10 px-5 py-4 rounded-full flex items-center justify-center hover:bg-white/5 transition">
+                                <img src="../assets/sharing.svg" class="w-5 h-5" alt="Share" />
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
+        <footer class="mt-20 px-6 sm:px-10 py-10 bg-[#002538] text-gray-300">
+            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10">
+          
+              <!-- Brand -->
+              <div>
+                <h2 class="text-5xl font-bold text-[#00c2b3] mb-3">Mine To Yours</h2>
+                <p class="text-sm leading-6">
+                  A platform to share and donate items easily. Give what you don’t need, help someone who does.
+                </p>
+              </div>
+          
+              <!-- Quick Links -->
+              <div>
+                <h3 class="text-lg font-semibold mb-3">Quick Links</h3>
+                <ul class="space-y-2">
+                  <li><a href="#" class="hover:text-[#00c2b3]">Home</a></li>
+                  <li><a href="./product.page.html" class="hover:text-[#00c2b3]">Product</a></li>
+                  <li><a href="#" class="hover:text-[#00c2b3]">Contact</a></li>
+                  <li><a href="./about.html" class="hover:text-[#00c2b3]">About</a></li>
+                </ul>
+              </div>
+          
+              <!-- Sponsor -->
+              <div>
+                <h3 class="text-lg font-semibold mb-3">Sponsor</h3>
+                <div class="flex gap-4 items-center">
+                  <a href="https://www.rupp.edu.kh/">
+                    <img src="../assets/ruppLogo.svg" class="w-12 h-12 rounded-full" alt="RUPP Logo"/>
+                  </a>
+                  <a href="https://www.fe.rupp.edu.kh/program/7">
+                    <img src="../assets/ITELogo.svg" class="w-12 h-12 rounded-full" alt="ITE Logo"/>
+                  </a>
+                </div>
+              </div>
+          
+            </div>
+          
+            <!-- Bottom -->
+            <div class="mt-10 border-t border-gray-600 pt-4 text-center text-sm text-gray-400">
+              © Mine To Yours - ITE M2
+            </div>
+          
+            <!-- Light mode protection -->
+            <style>
+              body.light footer {
+                background-color: #002538 !important;
+                color: #d1d5db !important; /* applies to headings and links by default */
+              }
+
+              body.light footer a:hover {
+                color: #00c2b3;
+              }
+            </style>
+          </footer>
     </body>
 </html>
