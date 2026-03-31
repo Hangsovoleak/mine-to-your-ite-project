@@ -11,7 +11,7 @@ function applyTheme(theme) {
     localStorage.setItem("theme", theme);
 
     // Update icon
-    icon.src = isLight ? "../assets/moon.svg" : "../assets/sun.svg";
+    icon.src = isLight ? "./assets/moon.svg" : "./assets/sun.svg";
 }
 
 function toggleMode() {

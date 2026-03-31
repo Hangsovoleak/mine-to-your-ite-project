@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MineToYours</title>
-    <link rel="stylesheet" href="../dist/output.css" />
+    <link rel="stylesheet" href="./dist/output.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
@@ -18,9 +18,9 @@
           document.body.classList.toggle("light");
           const themeIcon = document.getElementById("themeIcon");
           if (document.body.classList.contains("light")) {
-            themeIcon.src = "../assets/moon.svg"; // show moon icon for light mode
+            themeIcon.src = "./assets/moon.svg"; // show moon icon for light mode
           } else {
-            themeIcon.src = "../assets/sun.svg";  // show sun icon for dark mode
+            themeIcon.src = "./assets/sun.svg";  // show sun icon for dark mode
           }
         }
         </script>
@@ -89,23 +89,23 @@
     
                 <!-- LEFT: Logo -->
                 <a href="#" class="w-12 h-12 rounded-full bg-teal-600 flex items-center justify-center shrink-0">
-                  <img src="../assets/MINE.png" class="w-10 h-10 rounded-full"/>
+                  <img src="./assets/MINE.png" class="w-10 h-10 rounded-full"/>
                 </a>
               
                 <!-- CENTER: Desktop menu only -->
                 <div class="hidden md:flex flex-1 justify-center">
                   <div class="bg-[#002538] rounded-xl px-4 py-2 flex items-center gap-3 border-2 border-[#032c40] nav-menu">
                     <a href="#" class="flex items-center gap-2 px-4 py-2 text-sm text-white font-semibold rounded-xl hover:bg-white/20 transition">
-                        <img src="../assets/house.svg" alt="Home" class="w-6 h-6" /> Home
+                        <img src="./assets/house.svg" alt="Home" class="w-6 h-6" /> Home
                     </a>
                     <a href="./product.page.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white font-semibold rounded-xl hover:bg-white/20 transition">
-                        <img src="../assets/archive.svg" alt="Products" class="w-6 h-6" /> Product
+                        <img src="./assets/archive.svg" alt="Products" class="w-6 h-6" /> Product
                     </a>
                     <a href="./contact.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white font-semibold rounded-xl hover:bg-white/20 transition">
-                        <img src="../assets/inbox.svg" alt="Contact" class="w-6 h-6" /> Contact
+                        <img src="./assets/inbox.svg" alt="Contact" class="w-6 h-6" /> Contact
                     </a>
                     <a href="./about.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white font-semibold rounded-xl hover:bg-white/20 transition">
-                        <img src="../assets/book-user.svg" alt="About" class="w-6 h-6" /> About
+                        <img src="./assets/book-user.svg" alt="About" class="w-6 h-6" /> About
                     </a>
                   </div>
                 </div>
@@ -114,15 +114,15 @@
                 <div class="flex items-center gap-2">
               
                   <a href="#" class="w-10 h-10 rounded-full bg-[#002538] flex items-center justify-center nav-action">
-                    <img src="../assets/languages.svg" class="w-5 h-5"/>
+                    <img src="./assets/languages.svg" class="w-5 h-5"/>
                   </a>
               
-                  <a href="../src/login.html" class="w-10 h-10 rounded-full bg-[#002538] flex items-center justify-center nav-action">
-                    <img src="../assets/user-plus (2).svg" class="w-5 h-5"/>
+                  <a href="./login.html" class="w-10 h-10 rounded-full bg-[#002538] flex items-center justify-center nav-action">
+                    <img src="./assets/user-plus (2).svg" class="w-5 h-5"/>
                   </a>
               
                   <button onclick="toggleMode()" class="w-10 h-10 rounded-full bg-[#002538] flex items-center justify-center nav-action">
-                    <img id="themeIcon" src="../assets/sun.svg" class="w-5 h-5"/>
+                    <img id="themeIcon" src="./assets/sun.svg" class="w-5 h-5"/>
                   </button>
               
                   <!-- Mobile menu button -->
@@ -131,7 +131,7 @@
                     class="md:hidden w-10 h-10 flex items-center justify-center"
                     data-hs-collapse="#mobile-menu"
                     >
-                   <img src="../assets/menu (1).svg" class="w-6 h-6"/>
+                   <img src="./assets/menu (1).svg" class="w-6 h-6"/>
                    </button>
               
                 </div>
@@ -375,7 +375,7 @@
           >
             <div class="relative overflow-hidden">
               <img
-                src="../assets/sneaker.webp"
+                src="./assets/sneaker.webp"
                 alt="Sneakers"
                 class="w-full h-65 object-cover group-hover:scale-105 transition duration-500"
               />
@@ -418,7 +418,7 @@
           >
             <div class="relative overflow-hidden">
               <img
-                src="../assets/digital camera.jpg"
+                src="./assets/digital camera.jpg"
                 alt="Camera"
                 class="w-full h-65 object-cover group-hover:scale-105 transition duration-500"
               />
@@ -505,7 +505,7 @@
           >
             <div class="relative overflow-hidden">
               <img
-                src="../assets/headphone.jpg"
+                src="./assets/headphone.jpg"
                 alt="headphone"
                 class="w-full h-65 object-cover group-hover:scale-105 transition duration-500"
               />
@@ -549,7 +549,7 @@
           >
             <div class="relative overflow-hidden">
               <img
-                src="../assets/sofa.jpg"
+                src="./assets/sofa.jpg"
                 alt="Sofa"
                 class="w-full h-65 object-cover group-hover:scale-105 transition duration-500"
               />
@@ -692,14 +692,14 @@
           <div class="flex gap-4 items-center">
             <a href="https://www.rupp.edu.kh/">
               <img
-                src="../assets/ruppLogo.svg"
+                src="./assets/ruppLogo.svg"
                 class="w-12 h-12 rounded-full"
                 alt="RUPP Logo"
               />
             </a>
             <a href="https://www.fe.rupp.edu.kh/program/7">
               <img
-                src="../assets/ITELogo.svg"
+                src="./assets/ITELogo.svg"
                 class="w-12 h-12 rounded-full"
                 alt="ITE Logo"
               />

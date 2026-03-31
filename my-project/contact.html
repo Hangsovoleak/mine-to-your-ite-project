@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blog Page</title>
-    <link rel="stylesheet" href="../dist/output.css" />
+    <link rel="stylesheet" href="./dist/output.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
@@ -55,28 +55,28 @@
   id="app" class="min-h-screen bg-gradient-to-br from-[#00171f] via-[#00202b] to-[#003b46] transition-all duration-300">
     
   <nav class="fixed top-3 left-3 right-3 sm:top-6 sm:left-8 sm:right-8 z-50">
-    <div class="nav-glass bg-white/5 rounded-3xl shadow-md px-3 sm:px-4 py-3">
+    <div class="nav-glass bg-white/15 rounded-3xl shadow-md px-3 sm:px-4 py-3">
         <div class="max-w-screen-2xl mx-auto flex items-center justify-between">
 
             <!-- LEFT: Logo -->
             <a href="#" class="w-12 h-12 rounded-full bg-teal-600 flex items-center justify-center shrink-0">
-              <img src="../assets/MINE.png" class="w-10 h-10 rounded-full"/>
+              <img src="./assets/MINE.png" class="w-10 h-10 rounded-full"/>
             </a>
           
             <!-- CENTER: Desktop menu only -->
             <div class="hidden md:flex flex-1 justify-center">
-              <div class="bg-[#002538] rounded-xl px-4 py-2 flex items-center gap-3 border-2 border-[#032c40] nav-menu">
+              <div class="bg-[#002538] rounded-xl px-4 py-2 flex items-center gap-3 border-2 border-[#032c40]">
                 <a href="./index.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white font-semibold rounded-xl hover:bg-white/20 transition">
-                    <img src="../assets/house.svg" alt="Home" class="w-6 h-6" /> Home
+                    <img src="./assets/house.svg" alt="Home" class="w-6 h-6" /> Home
                 </a>
                 <a href="./product.page.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white font-semibold rounded-xl hover:bg-white/20 transition">
-                    <img src="../assets/archive.svg" alt="Products" class="w-6 h-6" /> Product
+                    <img src="./assets/archive.svg" alt="Products" class="w-6 h-6" /> Product
                 </a>
-                <a href="./contact.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white font-semibold rounded-xl hover:bg-white/20 transition">
-                    <img src="../assets/inbox.svg" alt="Contact" class="w-6 h-6" /> Contact
+                <a href="#" class="flex items-center gap-2 px-4 py-2 text-sm text-white font-semibold rounded-xl hover:bg-white/20 transition">
+                    <img src="./assets/inbox.svg" alt="Contact" class="w-6 h-6" /> Contact
                 </a>
                 <a href="./about.html" class="flex items-center gap-2 px-4 py-2 text-sm text-white font-semibold rounded-xl hover:bg-white/20 transition">
-                    <img src="../assets/book-user.svg" alt="About" class="w-6 h-6" /> About
+                    <img src="./assets/book-user.svg" alt="About" class="w-6 h-6" /> About
                 </a>
               </div>
             </div>
@@ -84,35 +84,29 @@
             <!-- RIGHT: Actions -->
             <div class="flex items-center gap-2">
           
-              <a href="#" class="w-10 h-10 rounded-full bg-[#002538] flex items-center justify-center nav-action">
-                <img src="../assets/languages.svg" class="w-5 h-5"/>
+              <a href="#" class="w-10 h-10 rounded-full bg-[#002538] flex items-center justify-center">
+                <img src="./assets/languages.svg" class="w-5 h-5"/>
               </a>
           
-              <a href="../src/login.html" class="w-10 h-10 rounded-full bg-[#002538] flex items-center justify-center nav-action">
-                <img src="../assets/user-plus (2).svg" class="w-5 h-5"/>
+              <a href="./login.html" class="w-10 h-10 rounded-full bg-[#002538] flex items-center justify-center">
+                <img src="./assets/user-plus (2).svg" class="w-5 h-5"/>
               </a>
           
-              <button onclick="toggleMode()" class="w-10 h-10 rounded-full bg-[#002538] flex items-center justify-center nav-action">
-                <img id="themeIcon" src="../assets/sun.svg" class="w-5 h-5"/>
+              <button onclick="toggleMode()" class="w-10 h-10 rounded-full bg-[#002538] flex items-center justify-center">
+                <img id="themeIcon" src="./assets/sun.svg" class="w-5 h-5"/>
               </button>
           
               <!-- Mobile menu button -->
-              <button
-                type="button"
-                class="md:hidden w-10 h-10 flex items-center justify-center"
-                data-hs-collapse="#mobile-menu"
-                >
-               <img src="../assets/menu (1).svg" class="w-6 h-6"/>
-               </button>
+              <button id="menuToggle" class="md:hidden w-10 h-10 flex items-center justify-center">
+                <img src="./assets/menu (1).svg" class="w-6 h-6"/>
+              </button>
           
             </div>
           </div>
-          <div
-            id="mobile-menu"
-            class="hs-collapse hidden md:hidden mt-2 mx-3 sm:mx-8 rounded-xl p-2 flex-col gap-2 nav-menu">
-            <a href="./index.html" class="block px-4 py-2 text-white rounded-lg hover:bg-white/20">Home</a>
+          <div id="mobile-menu" class="hidden md:hidden mt-2 mx-3 sm:mx-8 bg-[#002538] rounded-xl p-2 flex-col gap-2">
+            <a href="#" class="block px-4 py-2 text-white rounded-lg hover:bg-white/20">Home</a>
             <a href="./product.page.html" class="block px-4 py-2 text-white rounded-lg hover:bg-white/20">Product</a>
-            <a href="./contact.html" class="block px-4 py-2 text-white rounded-lg hover:bg-white/20">Contact</a>
+            <a href="#" class="block px-4 py-2 text-white rounded-lg hover:bg-white/20">Contact</a>
             <a href="./about.html" class="block px-4 py-2 text-white rounded-lg hover:bg-white/20">About</a>
           </div>
     </div>
@@ -333,10 +327,10 @@
             <h3 class="text-lg font-semibold mb-3">Sponsor</h3>
             <div class="flex gap-4 items-center">
               <a href="https://www.rupp.edu.kh/">
-                <img src="../assets/ruppLogo.svg" class="w-12 h-12 rounded-full" alt="RUPP Logo"/>
+                <img src="./assets/ruppLogo.svg" class="w-12 h-12 rounded-full" alt="RUPP Logo"/>
               </a>
               <a href="https://www.fe.rupp.edu.kh/program/7">
-                <img src="../assets/ITELogo.svg" class="w-12 h-12 rounded-full" alt="ITE Logo"/>
+                <img src="./assets/ITELogo.svg" class="w-12 h-12 rounded-full" alt="ITE Logo"/>
               </a>
             </div>
           </div>
