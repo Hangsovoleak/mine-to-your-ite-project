@@ -1,8 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./**/*.{html,js}",
-    "./node_modules/flowbite/**/*.js"
+    "./*.html",        // all HTML files in root
+    "./assets/**/*.js" // only YOUR js files, not node_modules
   ],
   theme: {
     extend: {},
